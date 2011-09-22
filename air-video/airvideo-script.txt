@@ -1,0 +1,64 @@
+/Applications/Air Video Server.app/Contents/Resources/ffmpeg -ss 60.0 -vframes 1 -i /some/where/movie.avi -f mjpeg -
+
+/Applications/Air Video Server.app/Contents/Resources/ffmpeg
+ --conversion-id 883dbc18-370b-4f02-a916-4d275d72b968
+ --port-number 46631
+ -threads 4
+ -flags2
+ +fast
+ -flags
+ +loop
+ -g 30
+ -keyint_min 1
+ -bf 0
+ -b_strategy 0
+ -flags2
+ -wpred-dct8x8
+ -cmp
+ +chroma
+ -deblockalpha 0
+ -deblockbeta 0
+ -refs 1
+ -coder 0
+ -me_range 16
+ -subq 5
+ -partitions
+ +parti4x4+parti8x8+partp8x8
+ -trellis 0
+ -sc_threshold 40
+ -i_qfactor 0.71
+ -qcomp 0.6
+ -map 0.0:0.0
+ -map 0.1:0.1
+ -ss 0.0
+ -i /some/where/movie.avi
+ -padleft 0
+ -padright 0
+ -padtop 0
+ -padbottom 0
+ -cropleft 0
+ -cropright 0
+ -croptop 0
+ -cropbottom 0
+ -s 1280x720
+ -aspect 1.7777778
+ -y
+ -async 1
+ -f h264
+ -vcodec libx264
+ -crf 24
+ -qmax 24
+ -r 23.976
+ /some/where/a62fadaa-a05c-4a97-9853-834c7dccfb0e.h264
+ -f adts
+ -ar 48000
+ -f wav
+ -ac 2
+ -
+
+/Applications/Air Video Server.app/Contents/Resources/faac -b 192 -c 20000 --mpeg-vers 4 -o 68fefcfc-45ce-4413-a65e-f4d32cfb0fc7.aac -
+
+
+/Applications/Air Video Server.app/Contents/Resources/mp4creator -create a62fadaa-a05c-4a97-9853-834c7dccfb0e.h264 -rate 23.976 -optimize 6f58726a-f9f9-4048-98da-de8ba073fa74.m4v
+
+/Applications/Air Video Server.app/Contents/Resources/mp4creator -create d4abbcb2-4ee0-478a-b543-3e95b9fdfd2b.aac 6f58726a-f9f9-4048-98da-de8ba073fa74.m4v -I -optimize
